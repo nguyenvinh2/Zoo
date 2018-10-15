@@ -16,7 +16,7 @@ namespace Zoo
     //abstract methods
     //both overridden two level down
     abstract public int ExpectedLifeSpan();
-    abstract public void MakeSound();
+    abstract public string MakeSound();
   }
   /// <summary>
   /// inherits from Animal
@@ -119,9 +119,9 @@ namespace Zoo
       return lifeSpan.Next(10, 13);
     }
 
-    public override void MakeSound()
+    public override string MakeSound()
     {
-      Console.WriteLine($"{Name} goes woof");
+     return ($"{Name} goes woof");
     }
   }
   /// <summary>
@@ -176,9 +176,9 @@ namespace Zoo
       return lifeSpan.Next(2, 16);
     }
 
-    public override void MakeSound()
+    public override string MakeSound()
     {
-      Console.WriteLine($"{Name} goes meoow");
+      return ($"{Name} goes meoow");
     }
 
     public override void Action()
@@ -238,9 +238,9 @@ namespace Zoo
     {
       return lifeSpan.Next(8,25);
     }
-    public override void MakeSound()
+    public override string MakeSound()
     {
-      Console.WriteLine($"{Name} goes beleeep");
+      return($"{Name} goes beleeep");
     }
 
     public Puffer()
@@ -315,9 +315,9 @@ namespace Zoo
     {
       return lifeSpan.Next(4,25);
     }
-    public override void MakeSound()
+    public override string MakeSound()
     {
-      Console.WriteLine($"{Name} goes bloooop");
+      return ($"{Name} goes bloooop");
     }
     public Pirahna()
     {
@@ -386,9 +386,9 @@ namespace Zoo
     {
       return lifeSpan.Next(14,36);
     }
-    public override void MakeSound()
+    public override string MakeSound()
     {
-      Console.WriteLine($"{Name} goes Aaaaahhhh");
+      return ($"{Name} goes Aaaaahhhh");
     }
   }
   /// <summary>
@@ -451,9 +451,9 @@ namespace Zoo
     {
       return lifeSpan.Next(1, 5);
     }
-    public override void MakeSound()
+    public override string MakeSound()
     {
-      Console.WriteLine($"{Name} goes eeeechhh");  
+      return ($"{Name} goes eeeechhh");  
     }
   }
   /// <summary>
@@ -495,7 +495,7 @@ namespace Zoo
       Console.WriteLine($"{Fluffy.Name} is {Fluffy.Age} years old");
       Console.WriteLine($"{Fluffy.Name} is expected to live for {Fluffy.ExpectedLifeSpan()} years");
       Console.WriteLine($"{Fluffy.Name} has {Fluffy.Coating}");
-      Fluffy.MakeSound();
+      Console.WriteLine(Fluffy.MakeSound());
       Fluffy.Action();
       Console.WriteLine();
       //For HouseCat Cat
@@ -504,7 +504,7 @@ namespace Zoo
       Console.WriteLine($"{Precious.Name} is {Precious.Age} years old");
       Console.WriteLine($"{Precious.Name} has {Precious.Coating}");
       Console.WriteLine($"{Precious.Name} is expected to live for {Precious.ExpectedLifeSpan()} years");
-      Precious.MakeSound();
+      Console.WriteLine(Precious.MakeSound());
       Precious.Action();
       Console.WriteLine();
       //For Japanese Puffer
@@ -513,7 +513,7 @@ namespace Zoo
       Console.WriteLine($"{KnawKnaw.Name} is {KnawKnaw.Age} years old");
       Console.WriteLine($"{KnawKnaw.Name} has {KnawKnaw.Coating}");
       Console.WriteLine($"{KnawKnaw.Name} is expected to live for {KnawKnaw.ExpectedLifeSpan()} years");
-      KnawKnaw.MakeSound();
+      Console.WriteLine(KnawKnaw.MakeSound());
       KnawKnaw.WillItPoisonYou(KnawKnaw.Poison);
       Console.WriteLine();
       //For Brazilian Pirahna
@@ -522,7 +522,7 @@ namespace Zoo
       Console.WriteLine($"{CoCo.Name} is {CoCo.Age} years old");
       Console.WriteLine($"{CoCo.Name} has {CoCo.Coating}");
       Console.WriteLine($"{CoCo.Name} is expected to live for {CoCo.ExpectedLifeSpan()} years");
-      CoCo.MakeSound();
+      Console.WriteLine(CoCo.MakeSound());
       CoCo.WillItPoisonYou(CoCo.Poison);
       Console.WriteLine();
       ////For African CrownEagle
@@ -532,7 +532,7 @@ namespace Zoo
       Console.WriteLine($"{America.Name} has {America.Coating}");
       Console.WriteLine($"{America.Name} is expected to live for {America.ExpectedLifeSpan()} years");
       Console.WriteLine($"{America.Name}'s top flight speed is {America.FlightSpeed}");
-      America.MakeSound();
+      Console.WriteLine(America.MakeSound());
       Console.WriteLine();
       //For OldWorld Sparrow
       OldWorld Serene = new OldWorld("Sparrow", 8);
@@ -541,7 +541,7 @@ namespace Zoo
       Console.WriteLine($"{Serene.Name} has {Serene.Coating}");
       Console.WriteLine($"{Serene.Name} is expected to live for {Serene.ExpectedLifeSpan()} years");
       Console.WriteLine($"{Serene.Name}'s top flight speed is {Serene.FlightSpeed}");
-      Serene.MakeSound();
+      Console.WriteLine(Serene.MakeSound());
       Console.WriteLine();
 
       Console.ReadKey();
