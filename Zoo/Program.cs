@@ -2,18 +2,33 @@
 
 namespace Zoo
 {
-  abstract class Animal
+  /// <summary>
+  /// Overall Base Class Animal
+  /// </summary>
+  abstract public class Animal
   {
+    //Name, Age, Coating are abstract properties
+    //Name and Age overriden 2 levels down
+    //Coating overriden 1 level down
     abstract public string Name { get; set; }
     abstract public int Age { get; set; }
     abstract public string Coating { get; }
+    //abstract methods
+    //both overridden two level down
     abstract public int ExpectedLifeSpan();
     abstract public void MakeSound();
-
   }
-
-  abstract class Mammal: Animal
+  /// <summary>
+  /// inherits from Animal
+  /// overrides Coating
+  /// creates virtual method unique to Mammal
+  /// </summary>
+  abstract public class Mammal: Animal
   {
+    //1st virtual method
+    //found only in Mammals
+    //so only Dog and Cat inherits it
+    //it is overriden in Cat but not in dog
     public virtual void Action()
     {
       Console.WriteLine($"{Name} wants to love you");
@@ -23,10 +38,22 @@ namespace Zoo
       get { return "Fur"; }
     }
   }
-
-  abstract class Fish: Animal
+  /// <summary>
+  /// inherits from Animal
+  /// overrides Coating
+  /// creates virtual method unique to Fish
+  /// and creates virtual property unique to Fish
+  /// </summary>
+  abstract public class Fish: Animal
   {
+    //1st virtual property
+    //found only in Fish
+    //assumes default value of false unless
+    //overriden (in Puffer)
     public virtual bool Poison { get { return false; } }
+    //2nd virtual method
+    //logs string out to console depending on Poisoin status
+    //overriden in Pirahna
     public virtual void WillItPoisonYou(bool poison)
     {
       if (poison)
@@ -43,18 +70,36 @@ namespace Zoo
       get { return "Scales"; }
     }
   }
-
-  abstract class Aves : Animal
+  /// <summary>
+  /// inherits from Animal
+  /// overrides Coating
+  /// and creates virtual property unique to Aves
+  /// </summary>
+  abstract public class Aves : Animal
   {
+    //2nd virtual property
+    //overriden in both types of bird
+    //Sparrow and CrownEagle
+    //Sparrow returns a set value
+    //CrownEagle value requires user to input argument
+    //so different number of parameters is need for input
+    //(3 in African, 2 in OldWorld
     public virtual int FlightSpeed { get; set;}
     public override string Coating
     {
       get { return "Feathers"; }
     }
   }
-
-  abstract class Dog : Mammal
+  /// <summary>
+  /// inherits from Mammal
+  /// declares property (protected)
+  /// passes it on to derived class
+  /// overrides ExpectedLifeSpan and MakeSound
+  /// overrides Name and Age
+  /// </summary>
+  abstract public class Dog : Mammal
   {
+    //made protected to pass values to inherit class
     protected string _name;
     protected int _age;
     Random lifeSpan = new Random();
@@ -79,8 +124,11 @@ namespace Zoo
       Console.WriteLine($"{Name} goes woof");
     }
   }
-
-  class Domesticated: Dog
+  /// <summary>
+  ///   /// last of derived class
+  /// for instantiating a version of Dog
+  /// </summary>
+  public class Domesticated : Dog
   {
     public Domesticated()
     {
@@ -99,8 +147,15 @@ namespace Zoo
     }
   }
 
-
-  abstract class Cat: Mammal
+  /// <summary>
+  ///inherits from Mammal
+  /// declares property (protected)
+  /// passes it on to derived class
+  /// overrides ExpectedLifeSpan and MakeSound
+  /// overrides Name and Age
+  /// overrides virtual Action()
+  /// </summary>
+  abstract public class Cat: Mammal
   {
     protected string _name;
     protected int _age;
@@ -131,8 +186,11 @@ namespace Zoo
       Console.WriteLine($"{Name} wants to kill you");
     }
   }
-
-  class HouseCat : Cat
+  /// <summary>
+  /// last of derived class
+  /// for instantiating a version of Cat
+  /// </summary>
+  public class HouseCat : Cat
   {
     public HouseCat()
     {
@@ -150,8 +208,15 @@ namespace Zoo
       Console.WriteLine("This is a House Cat");
     }
   }
-
-  abstract class Puffer: Fish
+  /// <summary>
+  /// inherits from Fish
+  /// declares property (protected)
+  /// passes it on to derived class
+  /// overrides ExpectedLifeSpan and MakeSound
+  /// overrides Name and Age
+  /// overrides virtual property Poison
+  /// </summary>
+  abstract public class Puffer: Fish
   {
     bool _poison = true;
     protected string _name;
@@ -189,8 +254,10 @@ namespace Zoo
       _age = age;
     }
   }
-
-  class Japanese : Puffer
+  /// <summary>
+  /// for instantiating a version of Puffer
+  /// </summary>
+  public class Japanese : Puffer
   {
     public Japanese()
     {
@@ -208,8 +275,15 @@ namespace Zoo
       Console.WriteLine("This is a the dangerous Japanese Puffer Fish");
     }
   }
-
-  abstract class Pirahna: Fish
+  /// <summary>
+  /// inherits from Fish
+  /// declares property (protected)
+  /// passes it on to derived class
+  /// overrides ExpectedLifeSpan and MakeSound
+  /// overrides Name and Age
+  /// overrides virtual property Poison and virtual method
+  /// </summary>
+  abstract public class Pirahna: Fish
   {
     protected string _name;
     protected int _age;
@@ -256,8 +330,10 @@ namespace Zoo
       _age = age;
     }
   }
-
-  class Brazilian : Pirahna
+  /// <summary>
+  /// for instantiating a version of Pirahna
+  /// </summary>
+  public class Brazilian : Pirahna
   {
     public Brazilian()
     {
@@ -275,8 +351,15 @@ namespace Zoo
       Console.WriteLine("This pirahna is found in the Amazon River in Brazil.");
     }
   }
-
-  abstract class CrownEagle: Aves
+  /// <summary>
+  /// inherits from Aves
+  /// declares property (protected)
+  /// passes it on to derived class
+  /// overrides ExpectedLifeSpan and MakeSound
+  /// overrides Name and Age
+  /// overrides virtual property FlightSpeed
+  /// </summary>
+  abstract public class CrownEagle: Aves
   {
     protected string _name;
     protected int _age;
@@ -308,8 +391,10 @@ namespace Zoo
       Console.WriteLine($"{Name} goes Aaaaahhhh");
     }
   }
-
-  class African: CrownEagle
+  /// <summary>
+  /// for instantiatiating a version of CrownEagle
+  /// </summary>
+  public class African : CrownEagle
   {
     public African()
     {
@@ -329,8 +414,16 @@ namespace Zoo
       Console.WriteLine("The Crowned Eagle is a large bird of prey resising in Sub-Sahran Africa");
     }
   }
-
-  class Sparrow: Aves
+  /// <summary>
+  /// inherits from Aves
+  /// declares property (protected)
+  /// passes it on to derived class
+  /// overrides ExpectedLifeSpan and MakeSound
+  /// overrides Name and Age
+  /// overrides virtual property FlightSpeed
+  /// </summary>
+  /// </summary>
+  abstract public class Sparrow : Aves
   {
     protected string _name;
     protected int _age;
@@ -363,8 +456,10 @@ namespace Zoo
       Console.WriteLine($"{Name} goes eeeechhh");  
     }
   }
-
-  class OldWorld : Sparrow
+  /// <summary>
+  /// for instantiating a version of Sparrow
+  /// </summary>
+  public class OldWorld : Sparrow
   {
     public OldWorld()
     {
@@ -384,12 +479,17 @@ namespace Zoo
   }
 
 
-  class Program
+  public class Program
   {
-    static void Main(string[] args)
+    /// <summary>
+    /// instatiates every derived class
+    /// and displays all of its polymorphic properties and methods
+    /// </summary>
+    /// <param name="args"></param>
+    public static void Main(string[] args)
     {
       Console.WriteLine("Hello World!");
-
+      //For Domesticated Dog
       Domesticated Fluffy = new Domesticated("Fluffy", 2);
       Domesticated.WhatAnimal();
       Console.WriteLine($"{Fluffy.Name} is {Fluffy.Age} years old");
@@ -398,7 +498,7 @@ namespace Zoo
       Fluffy.MakeSound();
       Fluffy.Action();
       Console.WriteLine();
-
+      //For HouseCat Cat
       HouseCat Precious = new HouseCat("Precious", 7);
       HouseCat.WhatAnimal();
       Console.WriteLine($"{Precious.Name} is {Precious.Age} years old");
@@ -407,7 +507,7 @@ namespace Zoo
       Precious.MakeSound();
       Precious.Action();
       Console.WriteLine();
-
+      //For Japanese Puffer
       Japanese KnawKnaw = new Japanese("KnawKnaw", 5);
       Japanese.WhatAnimal();
       Console.WriteLine($"{KnawKnaw.Name} is {KnawKnaw.Age} years old");
@@ -416,7 +516,7 @@ namespace Zoo
       KnawKnaw.MakeSound();
       KnawKnaw.WillItPoisonYou(KnawKnaw.Poison);
       Console.WriteLine();
-
+      //For Brazilian Pirahna
       Brazilian CoCo = new Brazilian("CoCo", 4);
       Brazilian.WhatAnimal();
       Console.WriteLine($"{CoCo.Name} is {CoCo.Age} years old");
@@ -425,7 +525,7 @@ namespace Zoo
       CoCo.MakeSound();
       CoCo.WillItPoisonYou(CoCo.Poison);
       Console.WriteLine();
-
+      ////For African CrownEagle
       African America = new African("America", 8, 320);
       African.WhatAnimal();
       Console.WriteLine($"{America.Name} is {America.Age} years old");
@@ -434,7 +534,7 @@ namespace Zoo
       Console.WriteLine($"{America.Name}'s top flight speed is {America.FlightSpeed}");
       America.MakeSound();
       Console.WriteLine();
-
+      //For OldWorld Sparrow
       OldWorld Serene = new OldWorld("Sparrow", 8);
       OldWorld.WhatAnimal();
       Console.WriteLine($"{Serene.Name} is {Serene.Age} years old");
