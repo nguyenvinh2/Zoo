@@ -7,4 +7,17 @@ namespace Zoo.Classes
   class Interfaces
   {
   }
+
+  public interface ICanSwim
+  {
+    void SwimSpeed();
+    void ThisAnimalSwims();
+  }
+
+  public interface ICanKeepPet
+  {
+    void ThisAnimalCanBePet();
+
+    int PetRating();
+  }
 }

@@ -6,11 +6,12 @@ namespace Zoo.Classes
 {
   /// <summary>
   /// inherits from Animal
+  /// has interface for Swim
   /// overrides Coating
   /// creates virtual method unique to Fish
   /// and creates virtual property unique to Fish
   /// </summary>
-  abstract public class Fish : Animal
+  abstract public class Fish : Animal, ICanSwim
   {
     //1st virtual property
     //found only in Fish
@@ -20,17 +21,28 @@ namespace Zoo.Classes
     //2nd virtual method
     //logs string out to console depending on Poisoin status
     //overriden in Pirahna
-    public virtual void WillItPoisonYou(bool poison)
+    public virtual string WillItPoisonYou(bool poison)
     {
       if (poison)
       {
-        Console.WriteLine("You died from eating this fish");
+        return("You died from eating this fish");
       }
       else
       {
-        Console.WriteLine("You can eat this fish");
+        return ("You can eat this fish");
       }
     }
+
+    public void SwimSpeed()
+    {
+      Console.WriteLine("Fishes swim fast enough");
+    }
+
+    public void ThisAnimalSwims()
+    {
+      Console.WriteLine("All Fishes can swim");
+    }
+
     public override string Coating
     {
       get { return "Scales"; }
@@ -98,13 +110,14 @@ namespace Zoo.Classes
   }
   /// <summary>
   /// inherits from Fish
+  /// has Pet Interface
   /// declares property (protected)
   /// passes it on to derived class
   /// overrides ExpectedLifeSpan and MakeSound
   /// overrides Name and Age
   /// overrides virtual property Poison and virtual method
   /// </summary>
-  abstract public class Pirahna : Fish
+  abstract public class Pirahna : Fish, ICanKeepPet
   {
     protected string _name;
     protected int _age;
@@ -119,15 +132,15 @@ namespace Zoo.Classes
     /// overrides else Console.Writeline
     /// </summary>
     /// <param name="poison">true/false on whether fish is poison</param>
-    public override void WillItPoisonYou(bool poison)
+    public override string WillItPoisonYou(bool poison)
     {
       if (poison)
       {
-        Console.WriteLine("You died from eating this fish");
+        return ("You died from eating this fish");
       }
       else
       {
-        Console.WriteLine("You can eat this fish. Pirahnas are actually great in soup or grilled.");
+        return ("You can eat this fish. Pirahnas are actually great in soup or grilled.");
       }
     }
     /// <summary>
@@ -153,6 +166,21 @@ namespace Zoo.Classes
     public override string MakeSound()
     {
       return ($"{Name} goes bloooop");
+    }
+    /// <summary>
+    /// interface method for pet printout
+    /// </summary>
+    public void ThisAnimalCanBePet()
+    {
+      Console.WriteLine("You can maybe keep pirahnas as a pet. I wouldn't recommend it");
+    }
+    /// <summary>
+    /// interface method for pet rating
+    /// </summary>
+    /// <returns></returns>
+    public int PetRating()
+    {
+      return 4;
     }
   }
   /// <summary>

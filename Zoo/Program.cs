@@ -22,6 +22,9 @@ namespace Zoo
       Console.WriteLine($"{Fluffy.Name} has {Fluffy.Coating}");
       Console.WriteLine(Fluffy.MakeSound());
       Fluffy.Action();
+      Fluffy.ThisAnimalSwims();
+      Fluffy.ThisAnimalCanBePet();
+      Fluffy.SwimSpeed();
       Console.WriteLine();
       //For different instatiating of Domesticated
       Console.WriteLine($"{Annie.Name} is {Annie.Age} years old");
@@ -38,6 +41,7 @@ namespace Zoo
       Console.WriteLine($"{Precious.Name} is expected to live for {Precious.ExpectedLifeSpan()} years");
       Console.WriteLine(Precious.MakeSound());
       Precious.Action();
+      Precious.ThisAnimalCanBePet();
       Console.WriteLine();
       //For Japanese Puffer
       Japanese KnawKnaw = new Japanese("KnawKnaw", 5);
@@ -46,7 +50,9 @@ namespace Zoo
       Console.WriteLine($"{KnawKnaw.Name} has {KnawKnaw.Coating}");
       Console.WriteLine($"{KnawKnaw.Name} is expected to live for {KnawKnaw.ExpectedLifeSpan()} years");
       Console.WriteLine(KnawKnaw.MakeSound());
-      KnawKnaw.WillItPoisonYou(KnawKnaw.Poison);
+      Console.WriteLine(KnawKnaw.WillItPoisonYou(KnawKnaw.Poison));
+      KnawKnaw.SwimSpeed();
+      KnawKnaw.ThisAnimalSwims();
       Console.WriteLine();
       //For Brazilian Pirahna
       Brazilian CoCo = new Brazilian("CoCo", 4);
@@ -55,7 +61,11 @@ namespace Zoo
       Console.WriteLine($"{CoCo.Name} has {CoCo.Coating}");
       Console.WriteLine($"{CoCo.Name} is expected to live for {CoCo.ExpectedLifeSpan()} years");
       Console.WriteLine(CoCo.MakeSound());
-      CoCo.WillItPoisonYou(CoCo.Poison);
+      Console.WriteLine(CoCo.WillItPoisonYou(CoCo.Poison));
+      CoCo.PetRating();
+      CoCo.ThisAnimalCanBePet();
+      CoCo.SwimSpeed();
+      CoCo.ThisAnimalSwims();
       Console.WriteLine();
       ////For African CrownEagle
       African America = new African("America", 8, 320);
@@ -74,7 +84,11 @@ namespace Zoo
       Console.WriteLine($"{Serene.Name} is expected to live for {Serene.ExpectedLifeSpan()} years");
       Console.WriteLine($"{Serene.Name}'s top flight speed is {Serene.FlightSpeed}");
       Console.WriteLine(Serene.MakeSound());
+      Serene.PetRating();
+      Serene.ThisAnimalCanBePet();
       Console.WriteLine();
+
+      Console.WriteLine(typeof(Japanese).GetInterface("ICanSwim"));
 
       Console.ReadKey();
     }

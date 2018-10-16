@@ -27,12 +27,13 @@ namespace Zoo.Classes
 
   /// <summary>
   /// inherits from Mammal
+  /// has two interfaces, swim and pet
   /// declares property (protected)
   /// passes it on to derived class
   /// overrides ExpectedLifeSpan and MakeSound
   /// overrides Name and Age
   /// </summary>
-  abstract public class Dog : Mammal
+  abstract public class Dog : Mammal, ICanKeepPet, ICanSwim
   {
     //made protected to pass values to inherit class
     protected string _name;
@@ -57,6 +58,36 @@ namespace Zoo.Classes
     public override string MakeSound()
     {
       return ($"{Name} goes woof");
+    }
+    /// <summary>
+    /// interface method
+    /// </summary>
+    /// <returns></returns>
+    public int PetRating()
+    {
+      return 10;
+    }
+    /// <summary>
+    /// interface method
+    /// </summary>
+    public void SwimSpeed()
+    {
+      int swimSpeed = 5;
+      Console.WriteLine($"Dogs can swim at {swimSpeed} miles per hour.");
+    }
+    /// <summary>
+    /// interface method
+    /// </summary>
+    public void ThisAnimalCanBePet()
+    {
+      Console.WriteLine("You can keep Dogs as pets.");
+    }
+    /// <summary>
+    /// interface method
+    /// </summary>
+    public void ThisAnimalSwims()
+    {
+      Console.WriteLine("Dogs can swim.");
     }
   }
   /// <summary>
@@ -87,13 +118,14 @@ namespace Zoo.Classes
 
   /// <summary>
   ///inherits from Mammal
+  ///has interface Pet
   /// declares property (protected)
   /// passes it on to derived class
   /// overrides ExpectedLifeSpan and MakeSound
   /// overrides Name and Age
   /// overrides virtual Action()
   /// </summary>
-  abstract public class Cat : Mammal
+  abstract public class Cat : Mammal, ICanKeepPet
   {
     protected string _name;
     protected int _age;
@@ -133,6 +165,21 @@ namespace Zoo.Classes
     public override void Action()
     {
       Console.WriteLine($"{Name} wants to kill you");
+    }
+    /// <summary>
+    /// Pet interface method
+    /// </summary>
+    public void ThisAnimalCanBePet()
+    {
+      Console.WriteLine("You can keep cats as a pet");
+    }
+    /// <summary>
+    /// pet interface method pet rating
+    /// </summary>
+    /// <returns></returns>
+    public int PetRating()
+    {
+      return 9;
     }
   }
   /// <summary>

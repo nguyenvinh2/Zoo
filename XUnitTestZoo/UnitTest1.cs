@@ -116,7 +116,7 @@ namespace XUnitTestZoo
     public void OldWorldSparrowLifeExpectancyTest()
     {
       OldWorld TestSparrow = new OldWorld();
-      Assert.InRange(TestSparrow.ExpectedLifeSpan(),1,5);
+      Assert.InRange(TestSparrow.ExpectedLifeSpan(), 1, 5);
     }
     [Fact]
     public void OldWorldSparrowFlightTest()
@@ -147,6 +147,117 @@ namespace XUnitTestZoo
     {
       Japanese TestPuffer = new Japanese();
       Assert.True(TestPuffer.Poison);
+    }
+
+    /// <summary>
+    /// tests if Puffer has ICanSwim Interface
+    /// </summary>
+    [Fact]
+    public void InterfacePufferFish()
+    {
+      Japanese TestPuffer = new Japanese();
+      Assert.True(TestPuffer is ICanSwim);
+    }
+    /// <summary>
+    /// tests if pirahna implements pet rating
+    /// should return number 4
+    /// </summary>
+    [Fact]
+    public void InterfacePirahnaRatingTest()
+    {
+      Brazilian TestPirahna = new Brazilian();
+      Assert.Equal(4, TestPirahna.PetRating());
+    }
+    /// <summary>
+    /// tests if pirahna has ICanSwim interface
+    /// </summary>
+    [Fact]
+    public void InterfacePirahnaSwimTest()
+    {
+      Brazilian TestPirahna = new Brazilian();
+      Assert.True(TestPirahna is ICanSwim);
+    }
+
+    /// <summary>
+    /// dog implements petrating and returns 10
+    /// </summary>
+    [Fact]
+    public void InterfaceDogRatingTest()
+    {
+      Domesticated TestDog = new Domesticated();
+      Assert.Equal(10, TestDog.PetRating());
+    }
+
+    [Fact]
+    public void InterfaceCatRatingTest()
+    {
+      HouseCat TestCat = new HouseCat();
+      Assert.Equal(9, TestCat.PetRating());
+    }
+
+    [Fact]
+    public void InterfaceSparrowRatingTest()
+    {
+      OldWorld TestSparrow = new OldWorld();
+      Assert.Equal(6, TestSparrow.PetRating());
+    }
+    /// <summary>
+    /// Tests if Domesticated Dog came from Animal
+    /// </summary>
+    [Fact]
+    public void ConcreteAnimalTestDog()
+    {
+      Domesticated TestDog = new Domesticated();
+      Assert.True(TestDog is Animal);
+    }
+    /// <summary>
+    /// Tests if Eagle is an Animal
+    /// </summary>
+    [Fact]
+    public void ConcreteAnimalTestEagle()
+    {
+      African TestEagle = new African();
+      Assert.True(TestEagle is Animal);
+    }
+
+    /// <summary>
+    /// Original string is "You can eat this fish". Method override
+    /// should change string to "You can eat this fish. Pirahnas are actually great in soup or grilled."
+    /// </summary>
+    [Fact]
+    public void MethodOverridenTest()
+    {
+      Brazilian TestPirahna = new Brazilian();
+      Assert.Equal("You can eat this fish. Pirahnas are actually great in soup or grilled.", TestPirahna.WillItPoisonYou(false));
+    }
+    /// <summary>
+    /// Tests if Brazilian Pirahna inherits from Pirahna class
+    /// </summary>
+    [Fact]
+    public void InheritancePirahna()
+    {
+      Brazilian TestPirahna = new Brazilian();
+      Assert.True(TestPirahna is Pirahna);
+    }
+
+    /// <summary>
+    /// Tests if Japanese Puffer inherits from Puffer class
+    /// </summary>
+    [Fact]
+    public void InheritancePuffer()
+    {
+      Japanese TestPuffer = new Japanese();
+      Assert.True(TestPuffer is Japanese);
+    }
+
+    /// <summary>
+    /// Tests if OldWorld Sparrow inherits from Sparrow class
+    /// </summary>
+    [Fact]
+    public void InheritanceSparrow()
+    {
+      OldWorld TestSparrow = new OldWorld();
+      Assert.True(TestSparrow is Sparrow);
     }
   }
 }

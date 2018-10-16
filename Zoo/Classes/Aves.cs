@@ -90,13 +90,14 @@ namespace Zoo.Classes
   }
   /// <summary>
   /// inherits from Aves
+  /// has Pet interface
   /// declares property (protected)
   /// passes it on to derived class
   /// overrides ExpectedLifeSpan and MakeSound
   /// overrides Name and Age
   /// overrides virtual property FlightSpeed
   /// </summary>
-  abstract public class Sparrow : Aves
+  abstract public class Sparrow : Aves, ICanKeepPet
   {
     protected string _name;
     protected int _age;
@@ -127,6 +128,21 @@ namespace Zoo.Classes
     public override string MakeSound()
     {
       return ($"{Name} goes eeeechhh");
+    }
+    /// <summary>
+    /// interface method for pet rating
+    /// </summary>
+    /// <returns></returns>
+    public int PetRating()
+    {
+      return 6;
+    }
+    /// <summary>
+    /// interface method
+    /// </summary>
+    public void ThisAnimalCanBePet()
+    {
+      Console.WriteLine("You can keep the Sparrow as a Pet");
     }
   }
   /// <summary>
