@@ -25,13 +25,17 @@ Cat -> HouseCat
 
 ## OOP Principles
 
-### Abstraction: The concept of identifying and implementing common attributes present in multiple classes. The Animal Class has the MakeSound() and ExpectedLifeSpan() because all animals have that in common. The implementation of it will be different, however.
+### Abstraction: 
+The concept of identifying and implementing common attributes present in multiple classes. The Animal Class has the MakeSound() and ExpectedLifeSpan() because all animals have that in common. The implementation of it will be different, however.
 
-### Encapsulation: Containing and controlling the details (such as access or visibility) of implementation within a class. Utilizing the abstract class for Animals, Fish, Aves, and Mammal is a form of Encapsulation. Using protected properties in Dog, Cat classes is also Encapsulation.
+### Encapsulation: 
+Containing and controlling the details (such as access or visibility) of implementation within a class. Utilizing the abstract class for Animals, Fish, Aves, and Mammal is a form of Encapsulation. Using protected properties in Dog, Cat classes is also Encapsulation.
 
-### Inheritance: The act of using a Base Class to provide specific behavior and member states to derived classes. Fish, Aves, and Mammal all inherit the methods and properties from the Animal Class.
+### Inheritance: 
+The act of using a Base Class to provide specific behavior and member states to derived classes. Fish, Aves, and Mammal all inherit the methods and properties from the Animal Class.
 
-### Polymorphism: Being able to connect to the same base through different subsequent forms:
+### Polymorphism: 
+Being able to connect to the same base through different subsequent forms:
 
   Method Overloading: Each Concrete Class in this example gives the user the ability to instatiate a new object with no parameters passed or with some parameters passed (Name and Age in this case).
 
@@ -52,4 +56,4 @@ Cat -> HouseCat
 
 ## Visual
 
-![Console](Zoo Diagram.jpg?raw=true "Output")
+![Console](Zoo_Diagram.jpg?raw=true "Output")
