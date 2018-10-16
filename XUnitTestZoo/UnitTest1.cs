@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Zoo;
 using static Zoo.Program;
+using Zoo.Classes;
 
 namespace XUnitTestZoo
 {
